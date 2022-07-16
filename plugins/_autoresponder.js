@@ -103,27 +103,64 @@ let loveyou = lovou[Math.floor(Math.random() * lovou.length)]
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     
-    let ass = /(assalamualaikum|assallamualaikum|assalamu\'alaikum|as\'salamualaikum)/i
-    let isAss = ass.exec(m.text)
-    let assal = [
-'🥰',
-'😇',
-'😅'
-]
-let assl = assal[Math.floor(Math.random() * assal.length)]
-    if (isAss && !m.fromMe) {
-    let assalamualaikum = fs.readFileSync('./mp3/WhatsApp-Audio-2021-03-02-at-20.46.15.opus')
-    conn.sendMessage(m.chat, {
-        react: {
-          text: `${assl}`,
-          key: m.key,
-        }})
-    setTimeout(() => {
-    conn.sendFile(m.chat, assalamualaikum, '', '', m, true)
-    }, 1000)
+    let fs = require('fs')
+
+let handler = m => m
+
+
+handler.all = async function (m, { isBlocked }) {
+    if (isBlocked) return
+    let setting = global.db.data.settings
+
+    // ketika ada yang invite/kirim link grup di chat pribadi
+    if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('Undangan untuk bergabung') || m.text.startsWith('Invitation to join') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
+    let teks = `┌「 *Undang Bot ke Grup* 」
+├ 7 Hari / Rp 5,000
+├ 30 Hari / Rp 10,000
+└────
+
+Jangan Lupa Group Bot
+${global.linkGC}`
+    this.sendB(m.chat, teks, wm, null, [[ownerButton, `.owner`]], m, { mentions: this.parseMention(teks) })
     }
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - */
+    // salam
+    let reg = /(ass?alam|اَلسَّلاَمُ عَلَيْكُمْ|السلام عليکم)/i
+    let isSalam = reg.exec(m.text)
+    if (isSalam && !m.fromMe) {
+        conn.sendStimg(m.chat, stickerSalam, m, { packname: packname })
+    }
+
+    // Hallo
+    let hallo = /(halo|hallo)/i
+    let ishalo = hallo.exec(m.text)
+    if (ishalo && !m.fromMe) {
+        m.reply(`Hallo juga 🥰`)
+    }
+
+    // Hai
+    let hai = /(hai)/i
+    let ishai = hai.exec(m.text)
+    if (ishai && !m.fromMe) {
+        m.reply(`Hai 🥰`)
+    }
+
+    let kontol = /(bot kontol)/i
+    let iskontol = kontol.exec(m.text)
+    if (iskontol && !m.fromMe) {
+       conn.sendFile(m.chat, fs.readFileSync('./src/data/DB_data/audio/kontol.opus'), '', '', m, true)
+    }
+
+    // Makasih
+    let mks = /(Makasih|Makasi|Terima Kasih)/i
+    let sama = mks.exec(m.text)
+    if (sama && !m.fromMe) {
+        conn.sendStimg(m.chat, stickerTerimaKasih, m, { packname: packname })
+    }
+
+}
+
+module.exports = handler/* - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - */
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     
