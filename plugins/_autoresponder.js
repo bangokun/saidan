@@ -160,7 +160,6 @@ ${global.linkGC}`
 
 }
 
-module.exports = handler/* - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - */
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
     
