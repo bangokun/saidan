@@ -126,7 +126,7 @@ let assl = assal[Math.floor(Math.random() * assal.length)]
 let kontol = /(bot kontol)/i
     let iskontol = kontol.exec(m.text)
     if (iskontol && !m.fromMe) {
-       conn.sendFile(m.chat, fs.readFileSync('./src/data/DB_data/audio/kontol.opus'), '', '', m, true)
+       conn.sendFile(m.chat, fs.readFileSync('./src/kontol.opus'), '', '', m, true)
     }
 
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
