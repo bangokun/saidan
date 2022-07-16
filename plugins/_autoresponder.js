@@ -126,7 +126,7 @@ let assl = assal[Math.floor(Math.random() * assal.length)]
 let kontol = /(bot kontol)/i
     let iskontol = kontol.exec(m.text)
     if (iskontol && !m.fromMe) {
-       conn.sendFile(m.chat, fs.readFileSync('./src/kontol.opus'), '', '', m, true)
+       conn.sendFile(m.chat, fs.readFileSync('./mp3/WhatsApp-Audio-2021-04-01-at-14.11.16.opus'), '', '', m, true)
     }
 
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
