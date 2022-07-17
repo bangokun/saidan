@@ -868,11 +868,6 @@ module.exports = {
             text = text.replace('@user', '@' + participants[0].split('@')[0])
             if (chat.detect)
                 this.sendMessage(id, { text, mentions: this.parseMention(text) })
-let kontol = /(bot kontol)/i
-    let iskontol = kontol.exec(m.text)
-    if (iskontol && !m.fromMe) {
-       conn.sendFile(m.chat, fs.readFileSync('./mp3/memek.opus'), '', '', m, true)
-    }
             break
         }
     },
