@@ -123,11 +123,7 @@ let assl = assal[Math.floor(Math.random() * assal.length)]
     }, 1000)
     }
 
-let kontol = /(bot kontol)/i
-    let iskontol = kontol.exec(m.text)
-    if (iskontol && !m.fromMe) {
-       conn.sendFile(m.chat, fs.readFileSync('./mp3/memek.opus'), '', '', m, true)
-    }
+
 
 /* - - - - - - - Ini autoresponder by aine - - - - - - - */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
